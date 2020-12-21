@@ -15,6 +15,15 @@ namespace Kata.RomanNumerals.Tests
         [TestCase(4, "IV")]
         [TestCase(9, "IX")]
         [TestCase(19, "XIX")]
+        [TestCase(50, "L")]
+        [TestCase(40, "XL")]
+        [TestCase(100, "C")]
+        [TestCase(90, "XC")]
+        [TestCase(500, "D")]
+        [TestCase(400, "CD")]
+        [TestCase(1000, "M")]
+        [TestCase(900, "CM")]
+        [TestCase(1492, "MCDXCII")]
         public void TransformIntoRespectiveRomanNumeral(int number, string expectedRomanNumeral)
         {
             var romanNumeral = RomanNumeralConverter.NumberToRomanNumeral(number);
