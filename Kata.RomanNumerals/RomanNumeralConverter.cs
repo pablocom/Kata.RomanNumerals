@@ -11,15 +11,12 @@ namespace Kata.RomanNumerals
 
             foreach (var arabicToRomanNumeral in ArabicToRomanNumeral.All)
             {
-                if (number >= arabicToRomanNumeral.Arabic)
+                while (number >= arabicToRomanNumeral.Arabic)
                 {
                     sb.Append(arabicToRomanNumeral.Character);
                     number -= arabicToRomanNumeral.Arabic;
                 }
             }
-
-            for (var i = 1; i <= number; i++)
-                sb.Append('I');
 
             return sb.ToString();
         }
@@ -27,15 +24,18 @@ namespace Kata.RomanNumerals
 
     public class ArabicToRomanNumeral
     {
-        public static readonly ArabicToRomanNumeral Ten = new ArabicToRomanNumeral(10, 'X');
-        public static readonly ArabicToRomanNumeral Five = new ArabicToRomanNumeral(5, 'V');
+        private static readonly ArabicToRomanNumeral Ten = new ArabicToRomanNumeral(10, "X");
+        private static readonly ArabicToRomanNumeral Nine = new ArabicToRomanNumeral(9, "IX");
+        private static readonly ArabicToRomanNumeral Five = new ArabicToRomanNumeral(5, "V");
+        private static readonly ArabicToRomanNumeral Four = new ArabicToRomanNumeral(4, "IV");
+        private static readonly ArabicToRomanNumeral One = new ArabicToRomanNumeral(1, "I");
 
-        public static readonly IEnumerable<ArabicToRomanNumeral> All = new[] { Ten, Five };
+        public static readonly IEnumerable<ArabicToRomanNumeral> All = new[] { Ten, Nine, Five, Four, One };
         
-        public char Character { get; }
+        public string Character { get; }
         public int Arabic { get; }
 
-        public ArabicToRomanNumeral(int arabic, char character)
+        private ArabicToRomanNumeral(int arabic, string character)
         {
             Character = character;
             Arabic = arabic;
