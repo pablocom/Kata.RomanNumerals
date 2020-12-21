@@ -9,6 +9,8 @@ namespace Kata.RomanNumerals.Tests
         [TestCase(3, "III")]
         [TestCase(5, "V")]
         [TestCase(7, "VII")]
+        [TestCase(10, "X")]
+        [TestCase(18, "XVIII")]
         public void TransformIntoRespectiveRomanNumeral(int number, string expectedRomanNumeral)
         {
             var romanNumeral = RomanNumeralConverter.NumberToRomanNumeral(number);
